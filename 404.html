@@ -918,7 +918,7 @@ html.b70-aberta,html.b70-aberta body{overflow:hidden}
             <div class="barra-v" aria-hidden="true"><i style="--p:40.1%"></i></div>
           </div>
           <div class="preco"><sup>R$</sup>7.770</div>
-          <div class="vagas">6 vagas, em 5× de R$ 1.554</div>
+          <div class="vagas">em 5× de R$ 1.554</div>
           <div class="grupo"><h4>Nos encartes</h4><ul><li><b>6 produtos</b> em cada um dos 4 encartes</li><li><b>Ponto extra</b> na loja durante os 4 encartes</li><li>Logotipo na capa dos 4 encartes</li></ul></div>
           <div class="grupo"><h4>Na campanha de prêmios</h4><ul><li><b>4 aceleradores</b></li><li><b>1 oferta-relâmpago</b>, com a primeira escolha da data</li><li>Abre uma das lives e aparece em todas</li></ul></div>
           <div class="grupo"><h4>Mídia incluída</h4><ul><li>TVs internas da loja</li><li>Produto em 4 disparos de WhatsApp e SMS</li><li>Materiais de loja e redes na versão máxima</li><li>Nome da marca nos spots de rádio</li><li>Logotipo no cupom do sorteio</li><li>Relatório de vendas a cada encarte</li></ul></div>
@@ -931,7 +931,7 @@ html.b70-aberta,html.b70-aberta body{overflow:hidden}
             <div class="barra-v" aria-hidden="true"><i style="--p:59.0%"></i></div>
           </div>
           <div class="preco"><sup>R$</sup>5.770</div>
-          <div class="vagas">12 vagas, em 5× de R$ 1.154</div>
+          <div class="vagas">em 5× de R$ 1.154</div>
           <div class="grupo"><h4>Nos encartes</h4><ul><li><b>3 produtos</b> em cada um dos 4 encartes</li></ul></div>
           <div class="grupo"><h4>Na campanha de prêmios</h4><ul><li><b>2 aceleradores</b></li><li><b>1 oferta-relâmpago</b>, com a data escolhida logo depois do Ouro</li><li>Logotipo nas 10 lives e produto em cena em 2</li></ul></div>
           <div class="grupo"><h4>Mídia incluída</h4><ul><li>TVs internas da loja</li><li>Produto em 2 disparos de WhatsApp e SMS</li><li>Materiais de loja e redes em destaque</li><li>Relatório de vendas no meio e no fim</li></ul></div>
@@ -944,7 +944,7 @@ html.b70-aberta,html.b70-aberta body{overflow:hidden}
             <div class="barra-v" aria-hidden="true"><i style="--p:36.2%"></i></div>
           </div>
           <div class="preco"><sup>R$</sup>1.770</div>
-          <div class="vagas">52 vagas, em 5× de R$ 354</div>
+          <div class="vagas">em 5× de R$ 354</div>
           <div class="grupo"><h4>Nos encartes</h4><ul><li><b>2 produtos</b> em 2 encartes, à escolha</li></ul></div>
           <div class="grupo"><h4>Na campanha de prêmios</h4><ul><li><b>1 acelerador</b></li><li><b>1 oferta-relâmpago</b></li><li>Logotipo na tela das 10 lives</li></ul></div>
           <div class="grupo"><h4>Mídia incluída</h4><ul><li>TVs internas da loja</li><li>Produto em 1 disparo de WhatsApp e SMS</li><li>Materiais de loja e redes</li><li>Relatório de vendas ao final</li></ul></div>
@@ -1407,7 +1407,7 @@ html.b70-aberta,html.b70-aberta body{overflow:hidden}
       var card = $('.cotas .cota.' + c.id); if(!card) return;
       var el = $('.vagas', card), cinco = Number(c.preco) / 5;
       var txt = c.livres <= 0 ? 'Vagas preenchidas'
-        : (c.livres === c.vagas ? c.vagas + ' vagas' : (c.livres === 1 ? 'Resta 1 de ' : 'Restam ' + c.livres + ' de ') + c.vagas + ' vagas') + ', em 5× de ' + reais(cinco);
+        : 'em 5× de ' + reais(cinco);
       if(el) el.textContent = txt;
       card.classList.toggle('cheia', c.livres <= 0);
     });
@@ -1547,7 +1547,7 @@ html.b70-aberta,html.b70-aberta body{overflow:hidden}
       return '<label class="bf-cota' + (cheia ? ' cheia' : '') + (F.cota === c.id ? ' sel' : '') + '"><input type="radio" name="cota" value="' + c.id + '"' + (cheia ? ' disabled' : '') + (F.cota === c.id ? ' checked' : '') + '>'
         + '<div class="n">' + esc(c.nome) + '</div><div class="p">' + reais(c.preco) + '</div><div class="x">ou 5× de ' + reais(Number(c.preco)/5) + '</div>'
         + '<ul>' + m.resumo.map(function(r){ return '<li>' + esc(r) + '</li>'; }).join('') + '</ul>'
-        + '<div class="v">' + (cheia ? 'Vagas preenchidas' : (c.vagas == null ? '' : (c.livres === 1 ? 'Resta 1 de ' : 'Restam ' + c.livres + ' de ') + c.vagas + ' vagas')) + '</div></label>';
+        + '<div class="v">' + (cheia ? 'Vagas preenchidas' : '') + '</div></label>';
     }).join('');
     $$('input[name="cota"]', box).forEach(function(r){ r.addEventListener('change', function(){ F.cota = r.value; $$('.bf-cota', box).forEach(function(l){ l.classList.toggle('sel', $('input', l).checked); }); $('#bfAviso1').textContent = ''; }); });
   }
